@@ -10,6 +10,12 @@ conectarDB();
 // Puerto de la app
 const PORT = process.env.PORT || 4000;
 
+// Define request information
+app.use(express.json({ extended: true }));
+
+// Routes import
+app.use('/api/users', require('./routes/users'));
+
 // Arrancar el servidor
 app.listen(PORT, () => {
     console.log(`El servidor está funcionando en el puerto ${PORT}`);
